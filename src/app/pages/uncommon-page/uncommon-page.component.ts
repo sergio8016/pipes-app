@@ -54,8 +54,8 @@ export class UncommonPageComponent {
   public myObservableTimer: Observable<number> = interval(2000);
   public promiseValue: Promise<string> = new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve('Promise resolved');
-    }, 3500);
+      resolve('Promise resolved after 3 secs');
+    }, 3000);
   })
 
   onButtonChangeClick() {

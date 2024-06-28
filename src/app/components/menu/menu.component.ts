@@ -38,13 +38,11 @@ export class MenuComponent implements OnInit {
       {
         label: 'Custom pipes', icon: PrimeIcons.COG, items: [
           {
-            label: 'Other',
-            icon: PrimeIcons.COG
+            label: 'Custom',
+            icon: PrimeIcons.COG,
+            routerLink: 'custom'
           }
         ]
-      },
-      {
-        label: 'Tres', icon: PrimeIcons.EYE
       },
     ]
   }

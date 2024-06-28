@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 import {BasicsPageComponent} from "./pages/basics-page/basics-page.component";
 
 export const routes: Routes = [
@@ -18,7 +18,12 @@ export const routes: Routes = [
   {
     path: 'uncommon',
     loadComponent: () => import('./pages/uncommon-page/uncommon-page.component').then(m => m.UncommonPageComponent)
-  },{
+  },
+  {
+    path: 'custom',
+    loadComponent: () => import('./pages/orders/orders.component').then(m => m.OrdersComponent)
+  },
+  {
     path: '**',
     redirectTo: ''
   },

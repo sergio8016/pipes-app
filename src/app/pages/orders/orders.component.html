@@ -1,0 +1,36 @@
+<p-panel header="Custom pipes" class="p-1">
+  <p>
+    Custom pipes - made by {{ 'myself' | toggleCase: 'M' }}
+  </p>
+</p-panel>
+
+<p-toolbar>
+  <div class="p-toolbar-group-start">
+    <p-button
+      label="ToogleCase"
+      [icon]="PrimeIcons.SEARCH"
+      styleClass="p-button-success"
+    />
+  </div>
+
+  <div class="p-toolbar-group-start">
+    <p-button
+      class="mr-1"
+      label="By Name"
+      [icon]="PrimeIcons.SORT"
+      styleClass="p-button-danger"
+    />
+    <p-button
+      class="mr-1"
+      label="Can fly"
+      [icon]="PrimeIcons.SORT"
+      styleClass="p-button-warning"
+    />
+    <p-button
+      class="mr-1"
+      label="Color"
+      [icon]="PrimeIcons.SORT"
+      styleClass="p-button-info"
+    />
+  </div>
+</p-toolbar>
