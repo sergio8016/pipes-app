@@ -27,23 +27,45 @@
 
   <div class="col-12 md:col-6">
     <p-fieldset legend="Slice Pipe" toggleable="true">
+      <b>Original</b>
+      <pre>{{ clients }}</pre>
 
+      <b>slice:0:2</b>
+      <pre>{{ clients | slice:0:2 }}</pre>
+      <b>slice:1:2</b>
+      <pre>{{ clients |slice:1:2 }}</pre>
+      <b>slice:0:3</b>
+      <pre>{{ clients | slice:0:3 }}</pre>
+      <b>slice:3:4</b>
+      <pre>{{ clients | slice:3:4 }}</pre>
+      <b>slice:0:3</b>
+      <pre>{{ clients | slice:0:3 }}</pre>
     </p-fieldset>
   </div>
 
   <div class="col-12 md:col-6">
     <p-fieldset legend="Json Pipe" toggleable="true">
-
+      <pre>
+        {{ person | json }}
+      </pre>
     </p-fieldset>
   </div>
   <div class="col-12 md:col-6">
     <p-fieldset legend="KeyValue Pipe" toggleable="true">
-
+      <ul>
+        @for (data of person | keyvalue: originalOrder; track data; ) {
+          <li>
+            <b>
+              {{ data.value }}
+            </b>
+          </li>
+        }
+      </ul>
     </p-fieldset>
   </div>
   <div class="col-12 md:col-6">
     <p-fieldset legend="Async Pipe" toggleable="true">
-
+      <pre>{{ myObservableTimer | async }}</pre>
     </p-fieldset>
   </div>
 </div>
