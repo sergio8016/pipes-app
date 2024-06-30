@@ -1,6 +1,6 @@
 <p-panel header="Custom pipes" class="p-1">
   <p>
-    Custom pipes - made by {{ 'myself' | toggleCase: 'M' }}
+    {{ 'Custom pipes - made by myself' | toggleCase: isUpperCase }}
   </p>
 </p-panel>
 
@@ -10,27 +10,42 @@
       label="ToogleCase"
       [icon]="PrimeIcons.SEARCH"
       styleClass="p-button-success"
+      (click)="toggleUpperCase()"
     />
   </div>
 
   <div class="p-toolbar-group-start">
-    <p-button
-      class="mr-1"
-      label="By Name"
-      [icon]="PrimeIcons.SORT"
-      styleClass="p-button-danger"
-    />
-    <p-button
-      class="mr-1"
-      label="Can fly"
-      [icon]="PrimeIcons.SORT"
-      styleClass="p-button-warning"
-    />
-    <p-button
-      class="mr-1"
-      label="Color"
-      [icon]="PrimeIcons.SORT"
-      styleClass="p-button-info"
-    />
+    @for (button of sortButtons; track button.value) {
+      <p-button
+        class="mr-1"
+        [label]="button.label"
+        [icon]="PrimeIcons.SORT"
+        [styleClass]="button.style"
+        (click)="onFilterButtonCLick(button.value)"
+      />
+    }
   </div>
 </p-toolbar>
+
+<div class="grid">
+  <div class="col mt-2">
+    <p-panel header="Heroes">
+      <p-table [value]="heroes | sortBy:sortCondition" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Name</th>
+            <th>Can fly?</th>
+            <th>Color</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-hero>
+          <tr>
+            <td>{{ hero.name }}</td>
+            <td>{{ hero.canFly | canFly }}</td>
+            <td>{{ hero.color | color | titlecase }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-panel>
+  </div>
+</div>
